@@ -1,0 +1,451 @@
+DATE: 17/11/2026
+
+==================================================
+1. STREAM API
+==================================================
+
+Definition:
+
+Stream API is a feature introduced in Java 8.
+It is used to process collections of data in a
+simple, readable and efficient way.
+
+It helps to filter, transform, sort and process
+elements without modifying the original collection.
+
+Stream operations are mainly divided into:
+
+A. Intermediate Operations
+B. Terminal Operations
+
+
+==================================================
+2. INTERMEDIATE OPERATIONS
+==================================================
+
+Definition:
+
+Intermediate operations transform one stream
+into another stream.
+
+They are lazy in execution, which means they
+will not execute until a terminal operation
+is called.
+
+1. filter()
+
+   Definition:
+   filter() is used to select elements from a
+   stream based on a given condition.
+
+   Example:
+   Filter employees whose salary is greater than
+   50000.
+
+2. map()
+
+   Definition:
+   map() is used to transform each element of a
+   stream into another value.
+
+   Example:
+   Convert employee names into uppercase.
+
+3. sorted()
+
+   Definition:
+   sorted() is used to sort stream elements in
+   natural order or custom order.
+
+   Example:
+   Sort employee salaries in ascending order.
+
+4. distinct()
+
+   Definition:
+   distinct() is used to remove duplicate
+   elements from a stream.
+
+   Example:
+   Remove duplicate numbers from a list.
+
+5. skip()
+
+   Definition:
+   skip() is used to skip the specified number
+   of elements from the beginning of a stream.
+
+   Example:
+   Skip the first 3 elements.
+
+6. peek()
+
+   Definition:
+   peek() is used to perform an action on each
+   element as it passes through the stream.
+
+   It is mainly used for debugging purposes.
+
+   Example:
+   Print elements while processing a stream.
+
+7. flatMap()
+
+   Definition:
+   flatMap() is used to convert each element
+   into a stream and combine all streams into
+   a single stream.
+
+   Example:
+   Convert a list of lists into a single list.
+
+
+==================================================
+3. TERMINAL OPERATIONS
+==================================================
+
+Definition:
+
+Terminal operations produce the final result
+or perform an action on the stream.
+
+They trigger the execution of intermediate
+operations.
+
+1. forEach()
+
+   Definition:
+   forEach() is used to perform an action on
+   each element of a stream.
+
+   Example:
+   Print all employee names.
+
+2. collect()
+
+   Definition:
+   collect() is used to collect stream elements
+   into a collection such as List, Set or Map.
+
+   Example:
+   Store filtered employees into a new list.
+
+3. count()
+
+   Definition:
+   count() is used to return the total number
+   of elements present in a stream.
+
+   Example:
+   Count the total number of employees.
+
+4. min()
+
+   Definition:
+   min() is used to find the minimum element
+   based on a given Comparator.
+
+   Example:
+   Find the employee with the lowest salary.
+
+5. max()
+
+   Definition:
+   max() is used to find the maximum element
+   based on a given Comparator.
+
+   Example:
+   Find the employee with the highest salary.
+
+6. reduce()
+
+   Definition:
+   reduce() is used to combine all stream
+   elements into a single result.
+
+   Example:
+   Calculate the sum of all employee salaries.
+
+7. allMatch()
+
+   Definition:
+   allMatch() checks whether all elements
+   satisfy a given condition.
+
+   It returns a boolean value (true or false).
+
+   Example:
+   Check whether all employees have salary
+   greater than 10000.
+
+8. anyMatch()
+
+   Definition:
+   anyMatch() checks whether at least one
+   element satisfies a given condition.
+
+   It returns a boolean value (true or false).
+
+   Example:
+   Check whether any employee belongs to HR.
+
+9. noneMatch()
+
+   Definition:
+   noneMatch() checks whether no elements
+   satisfy a given condition.
+
+   It returns a boolean value (true or false).
+
+   Example:
+   Check whether no employee has salary
+   below 10000.
+
+
+==================================================
+4. COMPARATOR AND COMPARABLE
+==================================================
+
+A. COMPARABLE
+
+Definition:
+
+Comparable is an interface in Java used to
+define the natural ordering of objects.
+
+It provides the compareTo() method to compare
+one object with another object.
+
+Example:
+Sort employees based on employee ID.
+
+Method:
+compareTo()
+
+
+B. COMPARATOR
+
+Definition:
+
+Comparator is an interface in Java used to
+define custom ordering of objects.
+
+It provides the compare() method to compare
+two objects.
+
+It allows sorting objects based on different
+properties.
+
+Example:
+Sort employees based on salary, name or age.
+
+Method:
+compare()
+
+
+DIFFERENCE BETWEEN COMPARATOR AND COMPARABLE:
+
+Comparable:
+1. Defines natural ordering.
+2. Uses compareTo() method.
+3. Implemented inside the class.
+4. Generally provides one default sorting order.
+
+Comparator:
+1. Defines custom ordering.
+2. Uses compare() method.
+3. Can be implemented separately from the class.
+4. Supports multiple sorting orders.
+
+
+==================================================
+5. OPTIONAL CLASS
+==================================================
+
+Definition:
+
+Optional is a class introduced in Java 8.
+
+It is used to represent a value that may or may
+not be present.
+
+It helps to avoid unnecessary NullPointerException
+by providing methods to handle missing values safely.
+
+
+METHODS OF OPTIONAL:
+
+1. Optional.of()
+
+   Definition:
+   Creates an Optional object containing a
+   non-null value.
+
+   Note:
+   If the given value is null, it throws
+   NullPointerException.
+
+2. Optional.ofNullable()
+
+   Definition:
+   Creates an Optional object that can contain
+   either a non-null value or a null value.
+
+   If the value is null, it returns an empty
+   Optional object.
+
+3. Optional.empty()
+
+   Definition:
+   Creates an empty Optional object without
+   containing any value.
+
+
+==================================================
+6. STREAM API WORKFLOW
+==================================================
+
+Stream API follows three main steps:
+
+1. SOURCE
+
+   Definition:
+   Source provides data to the stream.
+
+   Examples:
+   List, Set and Array.
+
+2. INTERMEDIATE OPERATIONS
+
+   Definition:
+   Used to process or transform stream elements.
+
+   Examples:
+   filter(), map(), sorted(), distinct().
+
+3. TERMINAL OPERATIONS
+
+   Definition:
+   Used to produce the final result.
+
+   Examples:
+   collect(), count(), forEach(), reduce().
+
+
+STREAM WORKFLOW:
+
+Source
+   |
+   v
+stream()
+   |
+   v
+Intermediate Operations
+   |
+   v
+filter()
+   |
+   v
+map()
+   |
+   v
+sorted()
+   |
+   v
+Terminal Operation
+   |
+   v
+collect()
+   |
+   v
+Final Result
+
+
+==================================================
+7. GIVEN TASK
+==================================================
+
+TASK: E-COMMERCE ORDER MANAGEMENT SYSTEM
+
+
+SCENARIO:
+
+You are developing an E-Commerce application
+that manages customer orders.
+
+Each order contains the following details:
+
+1. Order ID
+2. Customer Name
+3. Product
+4. Category
+5. Amount
+6. Status
+7. Delivery City
+
+
+REQUIREMENTS:
+
+Using the given order dataset and Java Stream API,
+perform the following operations:
+
+1. FILTER ORDERS
+
+   Filter orders based on amount and status.
+
+2. SORT ORDERS
+
+   Sort all orders based on order amount.
+
+3. HIGHEST ORDER AMOUNT
+
+   Find the highest order amount from the dataset.
+
+4. LOWEST ORDER AMOUNT
+
+   Find the lowest order amount from the dataset.
+
+5. CALCULATE TOTAL SALES
+
+   Calculate the total sales amount of all orders.
+
+6. COUNT ORDERS
+
+   Find the total number of orders.
+
+7. GROUP ORDERS
+
+   Group orders based on category and delivery city.
+
+8. CALCULATE AVERAGE ORDER AMOUNT
+
+   Calculate the average amount of all orders.
+
+
+OBJECTIVE:
+
+Practice Intermediate Operations,
+Terminal Operations and Collectors
+using a real-world E-Commerce business scenario.
+
+
+==================================================
+8. KEY LEARNINGS
+==================================================
+
+1. Understood Java Stream API and its usage.
+2. Learned Intermediate Operations and their
+   definitions.
+3. Learned Terminal Operations and their
+   definitions.
+4. Understood the difference between
+   Comparator and Comparable.
+5. Learned Optional class and its methods.
+6. Understood Stream API workflow.
+7. Practiced filtering and sorting operations.
+8. Learned grouping and aggregation using Collectors.
+9. Applied Java Stream API to a real-world
+   E-Commerce Order Management System.
+
+
+
